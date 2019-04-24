@@ -1,5 +1,4 @@
 sitemap tasmota label="Benvenuto a Casa" 
-
 { 
 	Frame label=Oggi{
 		Text item=Date icon="calendar"
