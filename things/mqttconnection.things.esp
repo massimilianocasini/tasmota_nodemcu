@@ -1,0 +1,9 @@
+Bridge mqtt:broker:myUnsecureBroker [ host="localhost", secure=false ]
+{
+    Thing topic esp8266 {
+    Channels:
+     Type string : in1 "Stato ingresso" [ stateTopic="eventi", transformationPattern="MAP:esp8266.map"]
+   //     Type switch : rl1 "Relè" [ commandTopic="eventi", stateTopic="eventi", on="1", off="0" ]
+        Type switch : rl1 "Relè" [ commandTopic="eventi",  on="1", off="0" ]
+    }
+    }

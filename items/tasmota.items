@@ -1,0 +1,3 @@
+String Ingresso1 "Stato ingresso [MAP(statoin.map):%s]" <alarm> 	{channel="mqtt:topic:myUnsecureBroker:tasmota:in1"}
+
+Switch Rele1 "Stato relè 1" <switch>   {channel="mqtt:topic:myUnsecureBroker:tasmota:rl1"}

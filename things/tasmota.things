@@ -1,0 +1,8 @@
+Bridge mqtt:broker:myUnsecureBroker [ host="localhost", secure=false ]
+    {
+        Thing topic tasmota {
+        Channels:
+        Type string : in1 "Ingresso 1" [stateTopic="stat/sonoff1/POWER1"]
+        Type switch : rl1 "Relè 1" [commandTopic="cmnd/sonoff2/POWER1",stateTopic="stat/sonoff2/POWER1", on="ON", off="OFF"]
+        }
+    }

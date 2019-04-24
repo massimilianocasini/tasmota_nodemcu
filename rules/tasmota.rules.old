@@ -1,0 +1,59 @@
+var Timer timer1 = null
+var Timer timer2 = null
+var Number counter1
+var Number counter2
+
+
+/* rule "Tasmota ON"
+    when
+        Item Ingresso1 changed from OFF to ON
+    then
+    counter1 = counter1 + 1
+    logInfo("counter", "Counter1=1")
+    if(counter1==1) {
+        Rele1.sendCommand(ON)
+        //postUpdate(Rele1, ON)
+    }
+    counter1 = 0
+    logInfo("counter", "Counter1=0")
+    //timer1 = createTimer(now.plusSeconds(5)) [|sendCommand(Rele1, ON)]  
+  //  val actions = getActions("mqtt","mmqtt:broker:myUnsecureBroker") 
+    //actions.publishMQTT("cmnd/sonoff-OUT/POWER","on")
+
+end
+
+rule "Tasmota OFF"
+    when
+        Item Ingresso1 changed from ON to OFF
+    then
+    counter2 = counter2 + 1
+    if(counter2==1) {
+        Rele1.sendCommand(OFF)
+        //postUpdate(Rele1, OFF)
+    }
+    counter2 = 0
+    //timer2 = createTimer(now.plusSeconds(5)) [|sendCommand(Rele1, OFF)] 
+    //sendCommand(Rele1, OFF)
+   // val actions = getActions("mqtt","mmqtt:broker:myUnsecureBroker")
+   // actions.publishMQTT("cmnd/sonoff-OUT/POWER","off")  
+end  */
+val actions = getActions("mqtt","mmqtt:broker:myUnsecureBroker") 
+rule "Tasmota ON"
+    when
+        Item Ingresso1 changed from OFF to ON
+    then
+    //timer1 = createTimer(now.plusSeconds(5)) [|sendCommand(Rele1, ON)]  
+    
+    actions.publishMQTT("cmnd/sonoff/POWER1","on")
+
+end
+
+rule "Tasmota OFF"
+    when
+        Item Ingresso1 changed from ON to OFF
+    then
+    //timer1 = createTimer(now.plusSeconds(5)) [|sendCommand(Rele1, ON)]  
+    
+    actions.publishMQTT("cmnd/sonoff/POWER1","off")
+
+end

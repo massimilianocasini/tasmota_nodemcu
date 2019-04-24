@@ -1,0 +1,12 @@
+sitemap tasmota label="Benvenuto a Casa" 
+
+{ 
+	Frame label=Oggi{
+		Text item=Date icon="calendar"
+		Text item=Temperatura_esterna
+	}
+    Frame label=Dispositivi {
+    Text item=Ingresso1 //mappings=[ON="CHIUSO",OFF="APERTO"]
+    Switch item=Rele1  //mappings=[ON="ON", OFF="OFF"]
+    }
+}
